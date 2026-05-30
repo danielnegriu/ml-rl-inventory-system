@@ -20,8 +20,3 @@ venv/
 
 # Streamlit
 .streamlit/
-
-# Generated data and models
-data/*.csv
-models/*.joblib
-models/*.pkl
