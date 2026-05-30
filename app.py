@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pickle
 
 import matplotlib.pyplot as plt
@@ -14,7 +16,10 @@ def get_discrete_state(state):
 
 st.title("Smart Inventory Management System")
 
-with open("q_table.pkl", "rb") as f:
+base_dir = Path(__file__).resolve().parent
+q_table_path = base_dir / "models" / "q_table.pkl"
+
+with open(q_table_path, "rb") as f:
 	q_table = pickle.load(f)
 
 if st.button("Run 1-Year Simulation"):

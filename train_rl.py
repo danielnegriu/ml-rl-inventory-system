@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pickle
 
 import numpy as np
@@ -11,6 +13,9 @@ def get_discrete_state(state):
 
 def main() -> None:
 	env = InventoryEnv()
+	base_dir = Path(__file__).resolve().parent
+	models_dir = base_dir / "models"
+	models_dir.mkdir(parents=True, exist_ok=True)
 
 	episodes = 2000
 	alpha = 0.1
@@ -60,7 +65,7 @@ def main() -> None:
 		if episode % 200 == 0:
 			print(f"Episode {episode}: Total Reward = {total_reward:.2f}")
 
-	with open("q_table.pkl", "wb") as f:
+	with open(models_dir / "q_table.pkl", "wb") as f:
 		pickle.dump(q_table, f)
 
 

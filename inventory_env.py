@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import gymnasium as gym
 import joblib
 import numpy as np
@@ -6,8 +8,12 @@ import pandas as pd
 
 class InventoryEnv(gym.Env):
 	def __init__(self) -> None:
-		self.data = pd.read_csv("inventory_data.csv")
-		self.model = joblib.load("demand_model.joblib")
+		base_dir = Path(__file__).resolve().parent
+		data_path = base_dir / "data" / "inventory_data.csv"
+		model_path = base_dir / "models" / "demand_model.joblib"
+
+		self.data = pd.read_csv(data_path)
+		self.model = joblib.load(model_path)
 		self.features = ["Day_of_Week", "Is_Weekend", "Has_Promotion", "Price"]
 
 		self.action_space = gym.spaces.Discrete(5)
