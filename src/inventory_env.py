@@ -8,7 +8,7 @@ import pandas as pd
 
 class InventoryEnv(gym.Env):
 	def __init__(self) -> None:
-		base_dir = Path(__file__).resolve().parent
+		base_dir = Path(__file__).resolve().parents[1]
 		data_path = base_dir / "data" / "inventory_data.csv"
 		model_path = base_dir / "models" / "demand_model.joblib"
 

@@ -4,7 +4,7 @@ import pickle
 
 import numpy as np
 
-from inventory_env import InventoryEnv
+from src.inventory_env import InventoryEnv
 
 
 def get_discrete_state(state):
@@ -13,7 +13,7 @@ def get_discrete_state(state):
 
 def main() -> None:
 	env = InventoryEnv()
-	base_dir = Path(__file__).resolve().parent
+	base_dir = Path(__file__).resolve().parents[1]
 	models_dir = base_dir / "models"
 	models_dir.mkdir(parents=True, exist_ok=True)
 

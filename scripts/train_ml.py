@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 
 
 def main() -> None:
-	base_dir = Path(__file__).resolve().parent
+	base_dir = Path(__file__).resolve().parents[1]
 	data_path = base_dir / "data" / "inventory_data.csv"
 	models_dir = base_dir / "models"
 	models_dir.mkdir(parents=True, exist_ok=True)

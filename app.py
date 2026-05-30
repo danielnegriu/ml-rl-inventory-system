@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
-from inventory_env import InventoryEnv
+from src.inventory_env import InventoryEnv
 
 
 def get_discrete_state(state):
